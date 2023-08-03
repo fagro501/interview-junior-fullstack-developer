@@ -1,0 +1,34 @@
+<div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
+  <div class="block text-gray-600 text-lg font-semibold py-2 px-2">
+    <h1>City List</h1>
+  </div>
+  <app-search (queryString)="onQueryStringChange($event)"/>
+  <div class="py-3 text-sm">
+    <ul class="max-w-md divide-y divide-gray-200" id="cityList">
+      <li class="pb-1 myCity" *ngFor="let city of cities" name="city">
+        <div class="flex items-center space-x-4">
+          <p class="font-medium truncate text-gray-900">
+            {{city.name}}
+          </p>
+          <div class="inline-flex items-center text-base font-semibold text-blue-800">
+            {{city.count}}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <button
+      class="w-full bg-blue-800 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-lg"
+      *ngIf="displayCount<total"
+      [disabled]="loading"
+      (click)="getMore()">
+      <span *ngIf="!loading">
+        Load more ({{displayCount}} / {{total}})
+      </span>
+      <span *ngIf="loading">
+        ...loading
+      </span>
+    </button>
+  </div>
+</div>

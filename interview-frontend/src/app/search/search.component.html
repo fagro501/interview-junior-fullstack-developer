@@ -1,0 +1,9 @@
+  <form>
+    <input type="text"
+           name="search"
+           id="search"
+           [(ngModel)]="search"
+           (ngModelChange)="onSearchChange()"
+           placeholder="Search for a city"
+           class="w-full rounded-lg bg-gray-200 text-gray-700 focus:outline-none py-2 px-2"/>
+  </form>
