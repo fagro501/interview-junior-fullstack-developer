@@ -1,4 +1,4 @@
-import { City } from '/cities.model';
+import { City } from './cities.model';
 
 export interface Result {
   cities: City[];
